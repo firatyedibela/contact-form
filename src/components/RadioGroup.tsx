@@ -26,7 +26,7 @@ export const RadioGroup = ({
   return (
     <fieldset className={`${className}`}>
       <legend className="mb-4 leading-[150%] flex flex-row">
-        {legend} {required && <Asteriks />}
+        {legend} {required && <Asteriks className="ml-2" />}
       </legend>
 
       {options.map((option) => (
