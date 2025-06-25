@@ -1,3 +1,11 @@
-export const Asteriks = () => {
-  return <span className="leading-[150%] text-green-600 ml-2">*</span>;
+type AsteriksProps = {
+  className?: string;
+};
+
+export const Asteriks = ({ className }: AsteriksProps) => {
+  return (
+    <span className={`leading-[150%] text-green-600 inline ${className}`}>
+      *
+    </span>
+  );
 };
