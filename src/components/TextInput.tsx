@@ -2,6 +2,7 @@ import { Asteriks } from './Asteriks';
 import { useFormContext } from 'react-hook-form';
 import { AnimatePresence, motion } from 'motion/react';
 import clsx from 'clsx';
+import { textarea } from 'motion/react-client';
 
 type TextInputProps = {
   type?: 'text' | 'email' | 'password';
@@ -16,6 +17,7 @@ type TextInputProps = {
 
 export const TextInput = ({
   type,
+  multiline,
   label,
   name,
   id,
@@ -27,6 +29,9 @@ export const TextInput = ({
     register,
     formState: { errors },
   } = useFormContext();
+
+  const tailwindInputStyling: string =
+    'border border-grey-500 rounded-lg px-6 py-[11px] leading-[150%] text-lg w-full';
 
   const isInputInvalid = !!errors[name];
   const error = errors[name];
@@ -40,13 +45,20 @@ export const TextInput = ({
         {required && <Asteriks className="ml-2" />}
       </label>
       <div>
-        <input
-          className="border border-grey-500 rounded-lg px-6 py-[11px] leading-[150%] text-lg w-full"
-          type={type}
-          id={id}
-          placeholder={placeholder}
-          {...register(name)}
-        />
+        {multiline ? (
+          <textarea
+            id={id}
+            className={clsx(tailwindInputStyling, 'h-60 sm:h-33 lg:h-[105px]')}
+          ></textarea>
+        ) : (
+          <input
+            className={clsx(tailwindInputStyling)}
+            type={type}
+            id={id}
+            placeholder={placeholder}
+            {...register(name)}
+          />
+        )}
         <AnimatePresence mode="wait" initial={false}>
           {isInputInvalid && (
             <InputError key={errorMessage} message={errorMessage} />
