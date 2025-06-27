@@ -25,13 +25,13 @@ export const RadioGroup = ({
 
   return (
     <fieldset className={`${className}`}>
-      <legend className="mb-4 leading-[150%] flex flex-row">
+      <legend className="mb-4 leading-[150%] flex flex-row capitalize">
         {legend} {required && <Asteriks className="ml-2" />}
       </legend>
 
       {options.map((option) => (
         <div>
-          <label className="flex flex-row items-center justify-start px-6 py-3 m text-lg border-1 border-grey-500 rounded-lg leading-[150%] ">
+          <label className="flex flex-row items-center justify-start px-6 py-3 m text-lg border-1 border-grey-500 rounded-lg leading-[150%] capitalize">
             <input
               className="appearance-none"
               type="radio"
