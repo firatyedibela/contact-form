@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useFormContext } from 'react-hook-form';
+import { InputError } from './TextInput';
 import iconRadioSelected from '../assets/images/icon-radio-selected.svg';
 import { Asteriks } from './Asteriks';
 import clsx from 'clsx';
@@ -22,7 +24,10 @@ export const RadioGroup = ({
   options,
   required,
 }: RadioGroupProps) => {
-  const [selected, setSelected] = useState<string | null>(null);
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <fieldset className={clsx(className, 'flex flex-col gap-4')}>
@@ -38,13 +43,10 @@ export const RadioGroup = ({
               <input
                 className="appearance-none"
                 type="radio"
-                name={name}
                 value={option}
-                checked={option === selected}
-                onChange={() => setSelected(option)}
                 required
+                {...register(name)}
               />
-              <RadioIcon isSelected={option === selected} />
               {option}
             </label>
           </div>
