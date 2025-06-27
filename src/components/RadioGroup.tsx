@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import iconRadioSelected from '../assets/images/icon-radio-selected.svg';
 import { Asteriks } from './Asteriks';
+import clsx from 'clsx';
 
 type RadioGroupProps = {
   legend: string;
@@ -16,7 +17,7 @@ type RadioIconProps = {
 
 export const RadioGroup = ({
   legend,
-  className = '',
+  className,
   name,
   options,
   required,
@@ -24,28 +25,31 @@ export const RadioGroup = ({
   const [selected, setSelected] = useState<string | null>(null);
 
   return (
-    <fieldset className={`${className}`}>
-      <legend className="mb-4 leading-[150%] flex flex-row capitalize">
-        {legend} {required && <Asteriks className="ml-2" />}
-      </legend>
-
-      {options.map((option) => (
-        <div>
-          <label className="flex flex-row items-center justify-start px-6 py-3 m text-lg border-1 border-grey-500 rounded-lg leading-[150%] capitalize">
-            <input
-              className="appearance-none"
-              type="radio"
-              name={name}
-              value={option}
-              checked={option === selected}
-              onChange={() => setSelected(option)}
-              required
-            />
-            <RadioIcon isSelected={option === selected} />
-            {option}
-          </label>
-        </div>
-      ))}
+    <fieldset className={clsx(className, 'flex flex-col gap-4')}>
+      <div>
+        <legend className="leading-[150%] flex flex-row capitalize">
+          {legend} {required && <Asteriks className="ml-2" />}
+        </legend>
+      </div>
+      <div className="flex flex-col gap-4 md:flex-row">
+        {options.map((option) => (
+          <div className="flex-1">
+            <label className="flex flex-row items-center justify-start px-6 py-3 m text-lg border-1 border-grey-500 rounded-lg leading-[150%] capitalize">
+              <input
+                className="appearance-none"
+                type="radio"
+                name={name}
+                value={option}
+                checked={option === selected}
+                onChange={() => setSelected(option)}
+                required
+              />
+              <RadioIcon isSelected={option === selected} />
+              {option}
+            </label>
+          </div>
+        ))}
+      </div>
     </fieldset>
   );
 };
@@ -56,7 +60,7 @@ const RadioIcon = ({ isSelected }: RadioIconProps) => {
       {isSelected ? (
         <img src={iconRadioSelected}></img>
       ) : (
-        <div className="w-[19.5px] h-[19.5px] border-[2px] border-grey-500 rounded-full"></div>
+        <div className="w-[19.5px] h-[19.5px] border-[1.5px] border-grey-500 rounded-full"></div>
       )}
     </div>
   );
