@@ -1,8 +1,8 @@
 import { Asteriks } from './Asteriks';
 import { useFormContext } from 'react-hook-form';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence } from 'motion/react';
+import { InputError } from './InputError';
 import clsx from 'clsx';
-import { textarea } from 'motion/react-client';
 
 type TextInputProps = {
   type?: 'text' | 'email' | 'password';
@@ -68,23 +68,4 @@ export const TextInput = ({
       </div>
     </div>
   );
-};
-
-type InputErrorProps = {
-  message: string | undefined;
-};
-
-const InputError = ({ message }: InputErrorProps) => {
-  return (
-    <motion.p {...inputError_animation} className="text-red-500">
-      {message}
-    </motion.p>
-  );
-};
-
-const inputError_animation = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-  transition: { duration: 0.5 },
 };
