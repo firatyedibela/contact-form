@@ -7,7 +7,7 @@ type RadioGroupProps = {
   className?: string;
   name: string;
   options: string[];
-  required: boolean;
+  required?: boolean;
 };
 
 type RadioIconProps = {
