@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
 import iconCheckboxChecked from '../assets/images/icon-checkbox-check.svg';
 import { Asteriks } from './Asteriks';
+import clsx from 'clsx';
 
 type CheckboxProps = {
   label: string;
   name: string;
   required: boolean;
+  className?: string;
 };
 
 type CheckboxIconProps = {
   isChecked: boolean;
 };
 
-export const Checkbox = ({ label, name, required }: CheckboxProps) => {
+export const Checkbox = ({
+  label,
+  name,
+  required,
+  className,
+}: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +27,7 @@ export const Checkbox = ({ label, name, required }: CheckboxProps) => {
   };
 
   return (
-    <div>
+    <div className={clsx(className)}>
       <label className="flex items-center justify-start cursor-pointer">
         <input
           type="checkbox"
