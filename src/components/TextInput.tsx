@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import clsx from 'clsx';
 
 type TextInputProps = {
-  type: 'text' | 'email' | 'password';
+  type?: 'text' | 'email' | 'password';
   multiline?: boolean;
   label: string;
   name: string;
