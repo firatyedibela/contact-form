@@ -11,6 +11,10 @@
   --color-red: #d73c3c;
 }
 
+body {
+  @apply bg-green-200;
+}
+
 @font-face {
   font-family: 'Karla';
   font-style: normal;
