@@ -11,6 +11,7 @@ type TextInputProps = {
   label: string;
   name: string;
   id: string;
+  validation: {};
   placeholder?: string;
   required?: boolean;
   className?: string;
@@ -22,6 +23,7 @@ export const TextInput = ({
   label,
   name,
   id,
+  validation,
   placeholder,
   required,
   className,
@@ -55,7 +57,7 @@ export const TextInput = ({
             type={type}
             id={id}
             placeholder={placeholder}
-            {...register(name)}
+            {...register(name, validation)}
           />
         )}
         <AnimatePresence mode="wait" initial={false}>
