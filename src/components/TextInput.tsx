@@ -49,7 +49,7 @@ export const TextInput = ({
           <textarea
             id={id}
             className={clsx(tailwindInputStyling, 'h-60 sm:h-33 lg:h-[105px]')}
-            {...register(name)}
+            {...register(name, validation)}
           ></textarea>
         ) : (
           <input
