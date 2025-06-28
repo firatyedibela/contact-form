@@ -10,6 +10,7 @@ type RadioGroupProps = {
   className?: string;
   name: string;
   options: string[];
+  validation: {};
   required?: boolean;
 };
 
@@ -22,6 +23,7 @@ export const RadioGroup = ({
   className,
   name,
   options,
+  validation,
   required,
 }: RadioGroupProps) => {
   const {
@@ -47,7 +49,7 @@ export const RadioGroup = ({
                 type="radio"
                 value={option}
                 required
-                {...register(name)}
+                {...register(name, validation)}
               />
               {option}
             </label>
