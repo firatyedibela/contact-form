@@ -4,11 +4,13 @@ import clsx from 'clsx';
 type ButtonProps = {
   children: React.ReactNode;
   className?: string;
+  onClick: () => void;
 };
 
-export const Button = ({ children, className }: ButtonProps) => {
+export const Button = ({ children, className, onClick }: ButtonProps) => {
   return (
     <button
+      onClick={onClick}
       className={clsx(
         className,
         'px-10 py-4 bg-green-600 hover:bg-dark-green text-white text-lg font-bold leading-[150%] rounded-lg cursor-pointer transition duration-150'
