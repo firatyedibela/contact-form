@@ -6,7 +6,7 @@ const validations = {
     required: 'This field is required',
   },
   email: {
-    required: 'This field is required',
+    required: 'Please enter a valid email address',
     pattern: {
       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
       message: 'Please enter a valid email address',
