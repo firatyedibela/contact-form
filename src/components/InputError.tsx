@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 
 type InputErrorProps = {
-  message: string | undefined;
+  message: string;
 };
 
 export const InputError = ({ message }: InputErrorProps) => {
