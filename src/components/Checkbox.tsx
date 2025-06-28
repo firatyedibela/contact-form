@@ -2,6 +2,8 @@ import iconCheckboxChecked from '../assets/images/icon-checkbox-check.svg';
 import { Asteriks } from './Asteriks';
 import clsx from 'clsx';
 import { useFormContext } from 'react-hook-form';
+import { InputError } from './InputError';
+import getErrorMessage from '../utils/get-error-message';
 
 type CheckboxProps = {
   label: string;
@@ -27,6 +29,8 @@ export const Checkbox = ({
     formState: { errors },
   } = useFormContext();
 
+  const errorMsg = getErrorMessage(errors, name);
+
   return (
     <div className={clsx(className)}>
       <label className="flex items-center justify-start cursor-pointer">
@@ -39,6 +43,7 @@ export const Checkbox = ({
           {label} {required && <Asteriks />}
         </p>
       </label>
+      {errorMsg && <InputError message={errorMsg} />}
     </div>
   );
 };
