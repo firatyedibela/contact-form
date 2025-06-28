@@ -16,6 +16,10 @@ body {
   overflow-y: scroll;
 }
 
+.radio-label:has(input:checked) {
+  @apply bg-green-200 border-green-600;
+}
+
 @font-face {
   font-family: 'Karla';
   font-style: normal;
