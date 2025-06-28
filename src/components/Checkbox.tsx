@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import iconCheckboxChecked from '../assets/images/icon-checkbox-check.svg';
 import { Asteriks } from './Asteriks';
 import clsx from 'clsx';
+import { useFormContext } from 'react-hook-form';
 
 type CheckboxProps = {
   label: string;
@@ -20,23 +20,19 @@ export const Checkbox = ({
   required,
   className,
 }: CheckboxProps) => {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(e.target.checked);
-  };
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <div className={clsx(className)}>
       <label className="flex items-center justify-start cursor-pointer">
         <input
           type="checkbox"
-          name={name}
-          checked={isChecked}
           className="appearance-none"
-          onChange={handleChange}
+          {...register(name)}
         />
-        <CheckboxIcon isChecked={isChecked} />
         <p className="leading-[150%] text-grey-900 mr-4">
           {label} {required && <Asteriks />}
         </p>
