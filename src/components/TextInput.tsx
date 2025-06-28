@@ -33,10 +33,11 @@ export const TextInput = ({
     formState: { errors },
   } = useFormContext();
 
-  const tailwindInputStyling: string =
-    'border border-grey-500 rounded-lg px-6 py-[11px] leading-[150%] text-lg w-full';
+  let tailwindInputStyling: string =
+    'border border-grey-500 rounded-lg px-6 py-[11px] leading-[150%] text-lg w-full cursor-pointer outline-none focus:border-green-600 hover:border-green-600 transition-all duration-150 ';
 
   const errorMsg = getErrorMessage(errors, name);
+  if (errorMsg) tailwindInputStyling += 'border-red';
 
   return (
     <div
@@ -49,7 +50,7 @@ export const TextInput = ({
         {label}
         {required && <Asteriks className="ml-2" />}
       </label>
-      <div>
+      <div className="flex flex-col gap-2">
         {multiline ? (
           <textarea
             id={id}

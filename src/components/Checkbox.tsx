@@ -34,7 +34,7 @@ export const Checkbox = ({
   const errorMsg = getErrorMessage(errors, name);
   const value = watch(name);
   return (
-    <div className={clsx(className)}>
+    <div className={clsx(className, 'flex flex-col gap-2')}>
       <label className="flex items-center justify-start cursor-pointer">
         <input
           type="checkbox"

@@ -45,10 +45,10 @@ export const RadioGroup = ({
       </div>
       <div className="flex flex-col gap-4 md:flex-row">
         {options.map((option) => (
-          <div className="flex-1">
-            <label className="flex flex-row items-center justify-start px-6 py-[11px] m text-lg border-1 border-grey-500 rounded-lg leading-[150%] capitalize">
+          <div className="flex-1" key={option}>
+            <label className="radio-label flex flex-row items-center justify-start px-6 py-[11px] m text-lg border-1 border-grey-500 rounded-lg leading-[150%] capitalize cursor-pointer hover:border-green-600 transition-all duration-300">
               <input
-                className="appearance-none"
+                className="appearance-none peer"
                 type="radio"
                 value={option}
                 required
