@@ -2,6 +2,7 @@ import { Asteriks } from './Asteriks';
 import { useFormContext } from 'react-hook-form';
 import { AnimatePresence } from 'motion/react';
 import { InputError } from './InputError';
+import getErrorMessage from '../utils/get-error-message';
 import clsx from 'clsx';
 
 type TextInputProps = {
@@ -33,10 +34,7 @@ export const TextInput = ({
   const tailwindInputStyling: string =
     'border border-grey-500 rounded-lg px-6 py-[11px] leading-[150%] text-lg w-full';
 
-  const isInputInvalid = !!errors[name];
-  const error = errors[name];
-  const errorMessage =
-    error && typeof error.message === 'string' ? error.message : undefined;
+  const errorMsg = getErrorMessage(errors, name);
 
   return (
     <div className={clsx('flex flex-col gap-2', className)}>
@@ -61,9 +59,7 @@ export const TextInput = ({
           />
         )}
         <AnimatePresence mode="wait" initial={false}>
-          {isInputInvalid && (
-            <InputError key={errorMessage} message={errorMessage} />
-          )}
+          {errorMsg && <InputError key={errorMsg} message={errorMsg} />}
         </AnimatePresence>
       </div>
     </div>
