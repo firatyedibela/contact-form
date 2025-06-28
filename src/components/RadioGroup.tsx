@@ -46,7 +46,7 @@ export const RadioGroup = ({
       <div className="flex flex-col gap-4 md:flex-row">
         {options.map((option) => (
           <div className="flex-1">
-            <label className="flex flex-row items-center justify-start px-6 py-3 m text-lg border-1 border-grey-500 rounded-lg leading-[150%] capitalize">
+            <label className="flex flex-row items-center justify-start px-6 py-[11px] m text-lg border-1 border-grey-500 rounded-lg leading-[150%] capitalize">
               <input
                 className="appearance-none"
                 type="radio"

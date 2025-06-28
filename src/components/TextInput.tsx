@@ -39,7 +39,12 @@ export const TextInput = ({
   const errorMsg = getErrorMessage(errors, name);
 
   return (
-    <div className={clsx('flex flex-col gap-2', className)}>
+    <div
+      className={clsx(
+        'flex flex-col gap-2 max-h-[272px] md:max-h-[164px] lg:max-h-[137px]',
+        className
+      )}
+    >
       <label className="capitalize" htmlFor={id}>
         {label}
         {required && <Asteriks className="ml-2" />}
@@ -48,7 +53,7 @@ export const TextInput = ({
         {multiline ? (
           <textarea
             id={id}
-            className={clsx(tailwindInputStyling, 'h-60 sm:h-33 lg:h-[105px]')}
+            className={clsx(tailwindInputStyling, ' h-60 sm:h-33 lg:h-[105px]')}
             {...register(name, validation)}
           ></textarea>
         ) : (
