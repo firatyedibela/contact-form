@@ -29,9 +29,11 @@ export const RadioGroup = ({
   const {
     register,
     formState: { errors },
+    watch,
   } = useFormContext();
 
   const errorMsg = getErrorMessage(errors, name);
+  const selectedValue = watch(name);
 
   return (
     <fieldset className={clsx(className, 'flex flex-col gap-4')}>
@@ -51,6 +53,7 @@ export const RadioGroup = ({
                 required
                 {...register(name, validation)}
               />
+              <RadioIcon isSelected={option === selectedValue} />
               {option}
             </label>
           </div>
