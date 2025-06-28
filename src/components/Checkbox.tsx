@@ -6,6 +6,7 @@ import { useFormContext } from 'react-hook-form';
 type CheckboxProps = {
   label: string;
   name: string;
+  validation: {};
   required: boolean;
   className?: string;
 };
@@ -17,6 +18,7 @@ type CheckboxIconProps = {
 export const Checkbox = ({
   label,
   name,
+  validation,
   required,
   className,
 }: CheckboxProps) => {
@@ -31,7 +33,7 @@ export const Checkbox = ({
         <input
           type="checkbox"
           className="appearance-none"
-          {...register(name)}
+          {...register(name, validation)}
         />
         <p className="leading-[150%] text-grey-900 mr-4">
           {label} {required && <Asteriks />}
