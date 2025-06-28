@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { useFormContext } from 'react-hook-form';
 import { InputError } from './InputError';
 import getErrorMessage from '../utils/get-error-message';
+import { AnimatePresence } from 'motion/react';
 
 type CheckboxProps = {
   label: string;
@@ -45,7 +46,9 @@ export const Checkbox = ({
           {label} {required && <Asteriks />}
         </p>
       </label>
-      {errorMsg && <InputError message={errorMsg} />}
+      <AnimatePresence mode="wait" initial={false}>
+        {errorMsg && <InputError message={errorMsg} />}
+      </AnimatePresence>
     </div>
   );
 };
