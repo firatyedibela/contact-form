@@ -4,6 +4,7 @@ import iconRadioSelected from '../assets/images/icon-radio-selected.svg';
 import getErrorMessage from '../utils/get-error-message';
 import { Asteriks } from './Asteriks';
 import clsx from 'clsx';
+import { AnimatePresence } from 'motion/react';
 
 type RadioGroupProps = {
   legend: string;
@@ -59,7 +60,9 @@ export const RadioGroup = ({
           </div>
         ))}
       </div>
-      {errorMsg && <InputError message={errorMsg} />}
+      <AnimatePresence mode="wait" initial={false}>
+        {errorMsg && <InputError key={errorMsg} message={errorMsg} />}
+      </AnimatePresence>
     </fieldset>
   );
 };
