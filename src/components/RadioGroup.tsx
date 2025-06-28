@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { InputError } from './TextInput';
+import { InputError } from './InputError';
 import iconRadioSelected from '../assets/images/icon-radio-selected.svg';
+import getErrorMessage from '../utils/get-error-message';
 import { Asteriks } from './Asteriks';
 import clsx from 'clsx';
 
@@ -29,6 +29,8 @@ export const RadioGroup = ({
     formState: { errors },
   } = useFormContext();
 
+  const errorMsg = getErrorMessage(errors, name);
+
   return (
     <fieldset className={clsx(className, 'flex flex-col gap-4')}>
       <div>
@@ -52,6 +54,7 @@ export const RadioGroup = ({
           </div>
         ))}
       </div>
+      {errorMsg && <InputError message={errorMsg} />}
     </fieldset>
   );
 };
