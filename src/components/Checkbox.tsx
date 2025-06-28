@@ -27,10 +27,11 @@ export const Checkbox = ({
   const {
     register,
     formState: { errors },
+    watch,
   } = useFormContext();
 
   const errorMsg = getErrorMessage(errors, name);
-
+  const value = watch(name);
   return (
     <div className={clsx(className)}>
       <label className="flex items-center justify-start cursor-pointer">
@@ -39,6 +40,7 @@ export const Checkbox = ({
           className="appearance-none"
           {...register(name, validation)}
         />
+        <CheckboxIcon isChecked={value} />
         <p className="leading-[150%] text-grey-900 mr-4">
           {label} {required && <Asteriks />}
         </p>
