@@ -5,12 +5,12 @@ import { useFormContext } from 'react-hook-form';
 import { InputError } from './InputError';
 import getErrorMessage from '../utils/get-error-message';
 import { AnimatePresence } from 'motion/react';
+import type { RegisterOptions } from 'react-hook-form';
 
 type CheckboxProps = {
   label: string;
   name: string;
-  validation: {};
-  required: boolean;
+  validationRules: RegisterOptions;
   className?: string;
 };
 
@@ -21,8 +21,7 @@ type CheckboxIconProps = {
 export const Checkbox = ({
   label,
   name,
-  validation,
-  required,
+  validationRules,
   className,
 }: CheckboxProps) => {
   const {
@@ -39,11 +38,11 @@ export const Checkbox = ({
         <input
           type="checkbox"
           className="appearance-none"
-          {...register(name, validation)}
+          {...register(name, validationRules)}
         />
         <CheckboxIcon isChecked={value} />
         <p className="leading-[150%] text-grey-900 mr-4">
-          {label} {required && <Asteriks />}
+          {label} {validationRules.required && <Asteriks />}
         </p>
       </label>
       <AnimatePresence mode="wait" initial={false}>

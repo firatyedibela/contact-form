@@ -35,28 +35,28 @@ export const ContactForm = () => {
             label="first name"
             name="firstName"
             id="firstname"
-            validation={validations.firstName}
+            validationRules={validations.firstName}
           />
           <TextInput
             type="text"
             label="last name"
             name="lastName"
             id="lastname"
-            validation={validations.lastName}
+            validationRules={validations.lastName}
           />
           <TextInput
             type="email"
             label="email address"
             name="email"
             id="email"
-            validation={validations.email}
+            validationRules={validations.email}
             className="md:col-span-2"
           />
           <RadioGroup
             legend="query type"
             name="queryType"
             options={['general enquiry', 'support request']}
-            validation={validations.queryType}
+            validationRules={validations.queryType}
             className="md:col-span-2"
           />
           <TextInput
@@ -64,14 +64,14 @@ export const ContactForm = () => {
             label="message"
             name="message"
             id="message"
-            validation={validations.message}
+            validationRules={validations.message}
             className="md:col-span-2"
           />
         </div>
         <Checkbox
           label="I consent to being contacted by the team"
           name="consentToContact"
-          validation={validations.consentToContact}
+          validationRules={validations.consentToContact}
           className="mt-10"
         />
         <Button onClick={methods.handleSubmit(onSubmit)} className="mt-10">

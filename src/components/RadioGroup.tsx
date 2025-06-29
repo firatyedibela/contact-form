@@ -5,13 +5,14 @@ import getErrorMessage from '../utils/get-error-message';
 import { Asteriks } from './Asteriks';
 import clsx from 'clsx';
 import { AnimatePresence } from 'motion/react';
+import type { RegisterOptions } from 'react-hook-form';
 
 type RadioGroupProps = {
   legend: string;
   className?: string;
   name: string;
   options: string[];
-  validation: {};
+  validationRules: RegisterOptions;
   required?: boolean;
 };
 
@@ -24,7 +25,7 @@ export const RadioGroup = ({
   className,
   name,
   options,
-  validation,
+  validationRules,
   required,
 }: RadioGroupProps) => {
   const {
@@ -40,7 +41,7 @@ export const RadioGroup = ({
     <fieldset className={clsx(className, 'flex flex-col gap-4')}>
       <div>
         <legend className="leading-[150%] flex flex-row capitalize">
-          {legend} {required && <Asteriks className="ml-2" />}
+          {legend} {validationRules.required && <Asteriks className="ml-2" />}
         </legend>
       </div>
       <div className="flex flex-col gap-4 md:flex-row">
@@ -51,8 +52,7 @@ export const RadioGroup = ({
                 className="appearance-none peer"
                 type="radio"
                 value={option}
-                required
-                {...register(name, validation)}
+                {...register(name, validationRules)}
               />
               <RadioIcon isSelected={option === selectedValue} />
               {option}

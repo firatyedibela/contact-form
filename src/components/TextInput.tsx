@@ -4,6 +4,7 @@ import { AnimatePresence } from 'motion/react';
 import { InputError } from './InputError';
 import getErrorMessage from '../utils/get-error-message';
 import clsx from 'clsx';
+import type { RegisterOptions } from 'react-hook-form';
 
 type TextInputProps = {
   type?: 'text' | 'email' | 'password';
@@ -11,9 +12,8 @@ type TextInputProps = {
   label: string;
   name: string;
   id: string;
-  validation: {};
+  validationRules: RegisterOptions;
   placeholder?: string;
-  required?: boolean;
   className?: string;
 };
 
@@ -23,9 +23,8 @@ export const TextInput = ({
   label,
   name,
   id,
-  validation,
+  validationRules,
   placeholder,
-  required,
   className,
 }: TextInputProps) => {
   const {
@@ -48,14 +47,14 @@ export const TextInput = ({
     >
       <label className="capitalize" htmlFor={id}>
         {label}
-        {required && <Asteriks className="ml-2" />}
+        {validationRules.required && <Asteriks className="ml-2" />}
       </label>
       <div className="flex flex-col gap-2">
         {multiline ? (
           <textarea
             id={id}
             className={clsx(tailwindInputStyling, ' h-60 sm:h-33 lg:h-[105px]')}
-            {...register(name, validation)}
+            {...register(name, validationRules)}
           ></textarea>
         ) : (
           <input
@@ -63,7 +62,7 @@ export const TextInput = ({
             type={type}
             id={id}
             placeholder={placeholder}
-            {...register(name, validation)}
+            {...register(name, validationRules)}
           />
         )}
         <AnimatePresence mode="wait" initial={false}>
