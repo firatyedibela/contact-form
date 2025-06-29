@@ -38,6 +38,7 @@ export const Checkbox = ({
         <input
           className="appearance-none"
           type="checkbox"
+          aria-describedby="input-error-checkbox"
           required={!!validationRules.required}
           {...register(name, validationRules)}
         />
@@ -47,7 +48,9 @@ export const Checkbox = ({
         </p>
       </label>
       <AnimatePresence mode="wait" initial={false}>
-        {errorMsg && <InputError message={errorMsg} />}
+        {errorMsg && (
+          <InputError id="input-error-checkbox" message={errorMsg} />
+        )}
       </AnimatePresence>
     </div>
   );

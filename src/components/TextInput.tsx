@@ -54,6 +54,8 @@ export const TextInput = ({
           <textarea
             className={clsx(tailwindInputStyling, ' h-60 sm:h-33 lg:h-[105px]')}
             id={id}
+            aria-invalid={!!errorMsg}
+            aria-describedby={`input-error-${name}`}
             required={!!validationRules.required}
             {...register(name, validationRules)}
           ></textarea>
@@ -63,12 +65,20 @@ export const TextInput = ({
             id={id}
             type={type}
             placeholder={placeholder}
+            aria-invalid={!!errorMsg}
+            aria-describedby={`input-error-${name}`}
             required={!!validationRules.required}
             {...register(name, validationRules)}
           />
         )}
         <AnimatePresence mode="wait" initial={false}>
-          {errorMsg && <InputError key={errorMsg} message={errorMsg} />}
+          {errorMsg && (
+            <InputError
+              id={`input-error-${name}`}
+              key={errorMsg}
+              message={errorMsg}
+            />
+          )}
         </AnimatePresence>
       </div>
     </div>

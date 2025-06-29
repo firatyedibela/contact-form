@@ -42,7 +42,7 @@ export const RadioGroup = ({
         {legend} {validationRules.required && <Asteriks className="ml-2" />}
       </legend>
 
-      <div className="flex flex-col gap-4 md:flex-row">
+      <div className="flex flex-col gap-4 md:flex-row mb-2">
         {options.map((option) => (
           <div className="flex-1" key={option}>
             <label className="radio-label flex flex-row items-center justify-start px-6 py-[11px] m text-lg border-1 border-grey-500 rounded-lg leading-[150%] capitalize cursor-pointer hover:border-green-600 transition-all duration-300">
@@ -50,6 +50,7 @@ export const RadioGroup = ({
                 className="appearance-none peer"
                 type="radio"
                 value={option}
+                aria-describedby="input-error-radio"
                 required={!!validationRules.required}
                 {...register(name, validationRules)}
               />
@@ -60,7 +61,13 @@ export const RadioGroup = ({
         ))}
       </div>
       <AnimatePresence mode="wait" initial={false}>
-        {errorMsg && <InputError key={errorMsg} message={errorMsg} />}
+        {errorMsg && (
+          <InputError
+            id="input-error-radio"
+            key={errorMsg}
+            message={errorMsg}
+          />
+        )}
       </AnimatePresence>
     </fieldset>
   );

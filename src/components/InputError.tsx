@@ -2,11 +2,12 @@ import { motion } from 'motion/react';
 
 type InputErrorProps = {
   message: string;
+  id: string;
 };
 
-export const InputError = ({ message }: InputErrorProps) => {
+export const InputError = ({ message, id }: InputErrorProps) => {
   return (
-    <motion.p {...inputError_animation} className="text-red-500">
+    <motion.p id={id} {...inputError_animation} className="text-red-500">
       {message}
     </motion.p>
   );
