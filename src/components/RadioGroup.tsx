@@ -26,7 +26,6 @@ export const RadioGroup = ({
   name,
   options,
   validationRules,
-  required,
 }: RadioGroupProps) => {
   const {
     register,
