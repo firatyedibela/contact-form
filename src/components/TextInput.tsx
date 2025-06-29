@@ -7,22 +7,24 @@ import clsx from 'clsx';
 import type { RegisterOptions } from 'react-hook-form';
 
 type TextInputProps = {
-  type?: 'text' | 'email' | 'password';
-  multiline?: boolean;
-  label: string;
-  name: string;
   id: string;
+  name: string;
+  type?: 'text' | 'email' | 'password';
+  autoComplete?: string;
   validationRules: RegisterOptions;
+  label: string;
+  multiline?: boolean;
   placeholder?: string;
   className?: string;
 };
 
 export const TextInput = ({
-  type,
-  multiline,
-  label,
-  name,
   id,
+  name,
+  type,
+  autoComplete,
+  label,
+  multiline,
   validationRules,
   placeholder,
   className,
@@ -49,11 +51,11 @@ export const TextInput = ({
         {label}
         {validationRules.required && <Asteriks className="ml-2" />}
       </label>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 ">
         {multiline ? (
           <textarea
-            className={clsx(tailwindInputStyling, ' h-60 sm:h-33 lg:h-[105px]')}
             id={id}
+            className={clsx(tailwindInputStyling, 'h-60 sm:h-33 lg:h-[105px]')}
             aria-invalid={!!errorMsg}
             aria-describedby={`input-error-${name}`}
             required={!!validationRules.required}
@@ -61,9 +63,10 @@ export const TextInput = ({
           ></textarea>
         ) : (
           <input
-            className={clsx(tailwindInputStyling)}
             id={id}
             type={type}
+            autoComplete={autoComplete}
+            className={clsx(tailwindInputStyling)}
             placeholder={placeholder}
             aria-invalid={!!errorMsg}
             aria-describedby={`input-error-${name}`}

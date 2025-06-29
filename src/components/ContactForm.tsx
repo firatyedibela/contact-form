@@ -31,48 +31,51 @@ export const ContactForm = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
           <TextInput
-            type="text"
-            label="first name"
-            name="firstName"
             id="firstname"
+            name="firstName"
+            type="text"
+            autoComplete="given-name"
+            label="first name"
             validationRules={validations.firstName}
           />
           <TextInput
-            type="text"
-            label="last name"
-            name="lastName"
             id="lastname"
+            name="lastName"
+            type="text"
+            autoComplete="family-name"
+            label="last name"
             validationRules={validations.lastName}
           />
           <TextInput
-            type="email"
-            label="email address"
-            name="email"
             id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            label="email address"
             validationRules={validations.email}
             className="md:col-span-2"
           />
           <RadioGroup
-            legend="query type"
             name="queryType"
+            legend="query type"
             options={['general enquiry', 'support request']}
-            validationRules={validations.queryType}
             className="md:col-span-2"
+            validationRules={validations.queryType}
           />
           <TextInput
-            multiline
-            label="message"
-            name="message"
             id="message"
-            validationRules={validations.message}
+            name="message"
+            label="message"
+            multiline
             className="md:col-span-2"
+            validationRules={validations.message}
           />
         </div>
         <Checkbox
-          label="I consent to being contacted by the team"
           name="consentToContact"
-          validationRules={validations.consentToContact}
+          label="I consent to being contacted by the team"
           className="mt-10"
+          validationRules={validations.consentToContact}
         />
         <Button onClick={methods.handleSubmit(onSubmit)} className="mt-10">
           Submit
