@@ -20,6 +20,10 @@ body {
   @apply bg-green-200 border-green-600;
 }
 
+div:has(#input-error-message) {
+  @apply mb-10;
+}
+
 @font-face {
   font-family: 'Karla';
   font-style: normal;
