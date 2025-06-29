@@ -52,16 +52,18 @@ export const TextInput = ({
       <div className="flex flex-col gap-2">
         {multiline ? (
           <textarea
-            id={id}
             className={clsx(tailwindInputStyling, ' h-60 sm:h-33 lg:h-[105px]')}
+            id={id}
+            required={!!validationRules.required}
             {...register(name, validationRules)}
           ></textarea>
         ) : (
           <input
             className={clsx(tailwindInputStyling)}
-            type={type}
             id={id}
+            type={type}
             placeholder={placeholder}
+            required={!!validationRules.required}
             {...register(name, validationRules)}
           />
         )}

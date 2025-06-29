@@ -50,6 +50,7 @@ export const RadioGroup = ({
                 className="appearance-none peer"
                 type="radio"
                 value={option}
+                required={!!validationRules.required}
                 {...register(name, validationRules)}
               />
               <RadioIcon isSelected={option === selectedValue} />

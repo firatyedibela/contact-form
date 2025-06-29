@@ -36,8 +36,9 @@ export const Checkbox = ({
     <div className={clsx(className, 'flex flex-col gap-2')}>
       <label className="flex items-center justify-start cursor-pointer">
         <input
-          type="checkbox"
           className="appearance-none"
+          type="checkbox"
+          required={!!validationRules.required}
           {...register(name, validationRules)}
         />
         <CheckboxIcon isChecked={value} />
