@@ -37,12 +37,11 @@ export const RadioGroup = ({
   const selectedValue = watch(name);
 
   return (
-    <fieldset className={clsx(className, 'flex flex-col gap-4')}>
-      <div>
-        <legend className="leading-[150%] flex flex-row capitalize">
-          {legend} {validationRules.required && <Asteriks className="ml-2" />}
-        </legend>
-      </div>
+    <fieldset className={clsx(className)}>
+      <legend className="leading-[150%] flex flex-row capitalize mb-4">
+        {legend} {validationRules.required && <Asteriks className="ml-2" />}
+      </legend>
+
       <div className="flex flex-col gap-4 md:flex-row">
         {options.map((option) => (
           <div className="flex-1" key={option}>
