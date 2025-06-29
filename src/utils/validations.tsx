@@ -1,4 +1,7 @@
-const validations = {
+import type { RegisterOptions } from 'react-hook-form';
+import type { FormFields } from '../components/ContactForm';
+
+const validations: Record<keyof FormFields, RegisterOptions> = {
   firstName: {
     required: 'This field is required',
   },
