@@ -5,7 +5,7 @@ import { Checkbox } from './Checkbox';
 import { Button } from './Button';
 import validations from '../utils/validations';
 
-type FormFields = {
+export type FormFields = {
   firstName: string;
   lastName: string;
   email: string;
@@ -36,7 +36,6 @@ export const ContactForm = () => {
             name="firstName"
             id="firstname"
             validation={validations.firstName}
-            required
           />
           <TextInput
             type="text"
@@ -44,7 +43,6 @@ export const ContactForm = () => {
             name="lastName"
             id="lastname"
             validation={validations.lastName}
-            required
           />
           <TextInput
             type="email"
@@ -52,7 +50,6 @@ export const ContactForm = () => {
             name="email"
             id="email"
             validation={validations.email}
-            required
             className="md:col-span-2"
           />
           <RadioGroup
@@ -60,7 +57,6 @@ export const ContactForm = () => {
             name="queryType"
             options={['general enquiry', 'support request']}
             validation={validations.queryType}
-            required
             className="md:col-span-2"
           />
           <TextInput
@@ -69,7 +65,6 @@ export const ContactForm = () => {
             name="message"
             id="message"
             validation={validations.message}
-            required
             className="md:col-span-2"
           />
         </div>
@@ -77,7 +72,6 @@ export const ContactForm = () => {
           label="I consent to being contacted by the team"
           name="consentToContact"
           validation={validations.consentToContact}
-          required
           className="mt-10"
         />
         <Button onClick={methods.handleSubmit(onSubmit)} className="mt-10">
