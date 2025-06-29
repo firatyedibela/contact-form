@@ -4,6 +4,7 @@ import { RadioGroup } from './RadioGroup';
 import { Checkbox } from './Checkbox';
 import { Button } from './Button';
 import validations from '../utils/validations';
+import { ClipLoader } from 'react-spinners';
 
 export type FormFields = {
   firstName: string;
@@ -19,7 +20,6 @@ export const ContactForm = () => {
 
   const onSubmit = async (data: FormFields) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
     methods.reset();
   };
 
@@ -78,7 +78,11 @@ export const ContactForm = () => {
           validationRules={validations.consentToContact}
         />
         <Button onClick={methods.handleSubmit(onSubmit)} className="mt-10">
-          Submit
+          {methods.formState.isSubmitting ? (
+            <ClipLoader size="27px" color="#ffffff" speedMultiplier={0.7} />
+          ) : (
+            'Submit'
+          )}
         </Button>
       </form>
     </FormProvider>
