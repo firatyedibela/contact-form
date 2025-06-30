@@ -7,9 +7,6 @@ export const Toast = () => {
       {...toast_animation}
       className="w-[327px] md:w-[450px] p-6 flex flex-col gap-2 bg-grey-900 rounded-xl text-white fixed top-6 left-1/2 -translate-x-1/2"
     >
-      <span role="alert" className="sr-only">
-        Message sent. Thanks for completing the form. We'll be in touch soon.
-      </span>
       <div className="flex gap-2 items-center">
         <img
           src={successIcon}

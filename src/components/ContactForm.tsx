@@ -104,6 +104,11 @@ export const ContactForm = () => {
             'Submit'
           )}
         </Button>
+        <span aria-live="polite" className="sr-only">
+          {methods.formState.isSubmitting && 'Submitting form'}
+          {isSuccess &&
+            "Thanks for completing the form. We'll be in touch soon!"}
+        </span>
         <AnimatePresence mode="wait" initial={false}>
           {isSuccess && <Toast />}
         </AnimatePresence>
