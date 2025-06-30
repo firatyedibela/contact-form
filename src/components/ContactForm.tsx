@@ -6,6 +6,8 @@ import { Button } from './Button';
 import validations from '../utils/validations';
 import { ClipLoader } from 'react-spinners';
 import { Toast } from './Toast';
+import { useState } from 'react';
+import { AnimatePresence } from 'motion/react';
 
 export type FormFields = {
   firstName: string;
@@ -18,10 +20,23 @@ export type FormFields = {
 
 export const ContactForm = () => {
   const methods = useForm<FormFields>();
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
+
+  const handleSuccess = async () => {
+    if (isSuccess) return;
+    // Display success toast for 3 seconds
+    setIsSuccess(true);
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    setIsSuccess(false);
+  };
 
   const onSubmit = async (data: FormFields) => {
+    console.log('Button clicked');
     await new Promise((resolve) => setTimeout(resolve, 1000));
     methods.reset();
+    handleSuccess();
+    console.log(data);
+    return;
   };
 
   return (
@@ -85,7 +100,9 @@ export const ContactForm = () => {
             'Submit'
           )}
         </Button>
-        <Toast />
+        <AnimatePresence mode="wait" initial={false}>
+          {isSuccess && <Toast />}
+        </AnimatePresence>
       </form>
     </FormProvider>
   );
