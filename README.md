@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution](https://your-solution-url.com)
-- [Live Site](https://your-live-site-url.com)
+- [Solution](https://www.frontendmentor.io/solutions/responsive-contact-form-with-react-hook-form-and-tailwind-pBS4MPbsDw)
+- [Live Site](https://contact-form-git-main-firatyedibelas-projects.vercel.app)
 
 ## My process
 
