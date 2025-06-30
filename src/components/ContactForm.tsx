@@ -93,7 +93,11 @@ export const ContactForm = () => {
           className="mt-10"
           validationRules={validations.consentToContact}
         />
-        <Button onClick={methods.handleSubmit(onSubmit)} className="mt-10">
+        <Button
+          onClick={methods.handleSubmit(onSubmit)}
+          className="mt-10"
+          disabled={isSuccess || methods.formState.isSubmitting}
+        >
           {methods.formState.isSubmitting ? (
             <ClipLoader size="27px" color="#ffffff" speedMultiplier={0.7} />
           ) : (
