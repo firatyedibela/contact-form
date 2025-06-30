@@ -25,6 +25,6 @@ export const Toast = () => {
 const toast_animation = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
-  exit: { opacity: 0, y: -100, scale: 0.95 },
+  exit: { opacity: 0, y: -100 },
   transition: { duration: 0.5 },
 };
