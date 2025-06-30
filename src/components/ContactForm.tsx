@@ -42,9 +42,9 @@ export const ContactForm = () => {
   return (
     <FormProvider {...methods}>
       <form className="bg-white p-6 rounded-2xl w-full mx-auto max-w-[690px] md:p-10 md:mt-16 lg:max-w-[736px] text-grey-900 ">
-        <h2 className="mb-8 font-bold text-[32px] tracking-[-1px] leading-[100%]">
+        <h1 className="mb-8 font-bold text-[32px] tracking-[-1px] leading-[100%]">
           Contact Us
-        </h2>
+        </h1>
         <div className="grid md:grid-cols-2 gap-6">
           <TextInput
             id="firstname"
