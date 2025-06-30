@@ -41,12 +41,7 @@ export const TextInput = ({
   if (errorMsg) tailwindInputStyling += 'border-red';
 
   return (
-    <div
-      className={clsx(
-        'flex flex-col gap-2 max-h-[272px] md:max-h-[164px] lg:max-h-[137px]',
-        className
-      )}
-    >
+    <div className={clsx('flex flex-col gap-2', className)}>
       <label className="capitalize" htmlFor={id}>
         {label}
         {validationRules.required && <Asteriks className="ml-2" />}
