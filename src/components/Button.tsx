@@ -17,6 +17,7 @@ export const Button = ({
   console.log(disabled);
   return (
     <button
+      type="submit"
       onClick={onClick}
       className={clsx(
         className,
