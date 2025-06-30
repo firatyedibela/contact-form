@@ -5,6 +5,7 @@ import { Checkbox } from './Checkbox';
 import { Button } from './Button';
 import validations from '../utils/validations';
 import { ClipLoader } from 'react-spinners';
+import { Toast } from './Toast';
 
 export type FormFields = {
   firstName: string;
@@ -25,7 +26,7 @@ export const ContactForm = () => {
 
   return (
     <FormProvider {...methods}>
-      <form className="bg-white p-6 rounded-2xl w-full max-w-[690px] md:p-10 lg:max-w-[736px] text-grey-900">
+      <form className="bg-white p-6 rounded-2xl w-full mx-auto max-w-[690px] md:p-10 md:mt-16 lg:max-w-[736px] text-grey-900 ">
         <h2 className="mb-8 font-bold text-[32px] tracking-[-1px] leading-[100%]">
           Contact Us
         </h2>
@@ -84,6 +85,7 @@ export const ContactForm = () => {
             'Submit'
           )}
         </Button>
+        <Toast />
       </form>
     </FormProvider>
   );
